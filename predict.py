@@ -44,11 +44,25 @@ while(1):
     index = input('Index : ')
     index = (int)(index)
 
+    # 推測を行う
+    predict = sess.run(y, feed_dict={x:x_test})
+    
+    # 確率を表示
+    print("0 : %.10f%%" % (predict[index][0] * 100))
+    print("1 : %.10f%%" % (predict[index][1] * 100))
+    print("2 : %.10f%%" % (predict[index][2] * 100))
+    print("3 : %.10f%%" % (predict[index][3] * 100))
+    print("4 : %.10f%%" % (predict[index][4] * 100))
+    print("5 : %.10f%%" % (predict[index][5] * 100))
+    print("6 : %.10f%%" % (predict[index][6] * 100))
+    print("7 : %.10f%%" % (predict[index][7] * 100))
+    print("8 : %.10f%%" % (predict[index][8] * 100))
+    print("9 : %.10f%%" % (predict[index][9] * 100))
+
     # 正解を表示
     print("correct : %d" % np.argmax(t_test[index]))
 
     # 推測値を表示
-    predict = sess.run(y, feed_dict={x:x_test})
     print("predict = " + (str)(np.argmax(predict[index])))
 
     # 画像を表示
